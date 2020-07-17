@@ -1,0 +1,77 @@
+<!--pages/maplewallet/maplewallet.wxml-->
+<!-- 账本列表  -->
+<view class="allViews">
+
+  <view class="id_currentView">
+    <text class="id_ss">ID:1101</text>
+    <text class="curmoney_ss">当前余额：{{curMoney}}</text>
+  </view>
+
+  <view class='fabricListView'>
+    <block wx:for="{{items}}">
+    <!-- 每个cell -->
+      <view class='item' wx:key="{{item.time}}" data-item= "{{item}}" data-id="{{item.time}}" >
+
+      <!-- 交易时间 -->
+      <view class='transactionTimeView'>
+        <text class='transactionTimeText'>{{item.time}}</text>
+      </view>
+
+      <!-- 交易金额 可以结合交易类型，通过正负表示-->
+      <view wx:if="{{item.typeOfTransaction == 'incomes'}}" class='transactionMoneyView'>
+        <text class='transactionMoneyText'>  {{item.moneyOfTransaction}}</text>
+      </view>
+      <view wx:elif="{{item.typeOfTransaction == 'outcomes'}}" class='transactionMoneyView'>
+        <text class='transactionMoneyText'> - {{item.moneyOfTransaction}}</text>
+      </view>
+
+      <view class='transactionDesView'>
+        <text class = 'transactionDesText'> {{item.desOfTransaction}}</text>
+      </view>
+      
+
+      </view>
+    </block>
+  </view>
+
+
+
+  <view class='submitBtnView'>
+    <view>
+        <button class='incomesBtn' type="primary" bindtap='submitIncomes'>添加交易</button>
+        <modal hidden="{{hiddenincomes}}" title="交易信息" 
+            confirm-text="提交" cancel-text="取消" 
+            bindcancel="cancelIncomes" bindconfirm="confirmIncomes">
+
+          <input bindinput="idInput" class="submitiInput" type='text'placeholder="ID" auto-focus/>
+          <input bindinput="moneyInput" class="submitiInput" type='text'placeholder="Money" />
+
+
+          <view class="submitiInput">
+            <picker bindchange="bindTypePickerChange" value="{{typeindex}}" range="{{typeArray}}">
+              <view class="pickerText">
+                {{typeArray[typeindex]}}
+              </view>
+            </picker>
+          </view>
+
+          <!-- <input bindinput="timeInput" class="submitiInput" type='text'placeholder="Time" />-->
+
+          <view class="submitiInput">
+            <picker mode="date" start="2015-09-01" end="{{enddata}}" bindchange="bindDatePickerChange">
+              <view class="pickerText">
+                {{selectdate}}
+              </view>
+            </picker>
+          </view>
+
+          <input bindinput="descriptionInput" class="submitiInput" type='text'placeholder="Description" />
+
+
+        </modal>
+    </view>
+
+
+  </view>
+
+</view>

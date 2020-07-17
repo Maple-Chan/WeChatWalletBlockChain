@@ -1,0 +1,94 @@
+/* pages/maplewallet/maplewallet.wxss */
+/* 定义布局，主要分成三层 */
+.allViews{
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+/* ID 选择和当前账本余额View的属性 */
+.id_currentView{
+  width: 100%;
+  height: 5vh;
+  margin-top: 1vh;
+  position: fixed;
+
+}
+.id_ss{
+  margin-left: 20px;
+  float: left
+}
+.curmoney_ss{
+  margin-right: 20px;
+  float: right
+}
+
+
+/* 列表布局 */
+.fabricListView{
+  /* width: 100%;
+  height: 80vh; */
+  margin-top:7vh;
+  margin-bottom:5vh;
+  width:100%;  /* these adjust the whole box size,*/
+  height:80vh; /* children cannot stretch out of these limits*/
+  position: relative;
+  overflow-y: scroll;
+}
+.item{
+  width: 100%;
+  height: 8vh;
+  position: relative;
+  /* background-color: green; */
+  border-bottom: 1px solid #dadada;
+}
+.transactionMoneyView{
+  top: 2rpx;
+  left: 50rpx;
+  right: 130rpx;
+  height: 50rpx;
+  position: absolute;
+}
+.transactionTimeView{
+  top: 2rpx;
+  left: 450rpx;
+  right: 130rpx;
+  height: 50rpx;
+  position: absolute;
+}
+.transactionDesView{
+  top: 50rpx;
+  left: 50rpx;
+  right: 130rpx;
+  height: 50rpx;
+  position: absolute;
+}
+
+
+/* 按钮布局样式 */
+.submitBtnView{  
+  width: 100%;
+  align-content: center;
+  bottom: 3%;
+  position: fixed;
+}
+.incomesBtn{
+
+}
+.outcomesBtn{
+
+}
+
+
+/* modal中输入框的样式 */
+.submitiInput{
+  /* background-color: green; */
+  height: 100rpx;
+  position: relative;
+  line-height: 100rpx;
+}
+.pickerText{
+  /* height: 100rpx;
+  position: relative;
+  line-height: 100rpx; */
+
+}
